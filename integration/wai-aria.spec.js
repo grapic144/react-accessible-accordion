@@ -10,6 +10,7 @@ describe('WAI ARIA Spec', () => {
                 '--disable-setuid-sandbox',
                 '--disable-dev-shm-usage',
             ],
+            dumpio: true,
         });
 
         const page = await browser.newPage();
