@@ -18,7 +18,7 @@ describe('WAI ARIA Spec', () => {
 
         // Seems like the browser is a bit slower on CI, and we're trying to
         // select headings before they're registered in the 'store'.
-        // await page.waitFor(1000);
+        await page.waitFor(1000);
         await page.waitForSelector('.accordion__heading');
 
         const headingsHandles = await page.$$(
@@ -319,14 +319,6 @@ describe('WAI ARIA Spec', () => {
         it('If the accordion panel associated with an accordion header is visible, and if the accordion does not permit the panel to be collapsed, the header button element has aria-disabled set to true.', async () => {
             const { page, headingsHandles } = await setup();
             expect(headingsHandles.length).toEqual(3);
-
-            page.on('error', err => {
-                console.log('error happen at the page: ', err);
-            });
-
-            page.on('pageerror', pageerr => {
-                console.log('pageerror occurred: ', pageerr);
-            });
 
             const [firstHeadingHandle] = headingsHandles;
             await firstHeadingHandle.click().catch(e => console.log(e));
