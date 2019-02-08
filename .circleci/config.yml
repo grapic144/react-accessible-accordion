@@ -88,18 +88,18 @@ workflows:
     build-deploy:
         jobs:
             - install-job
-            - build-job:
-                  requires:
-                      - install-job
-            - test-job:
-                  requires:
-                      - install-job
-            - lint-job:
-                  requires:
-                      - install-job
-            - coverage-job:
-                  requires:
-                      - install-job
+            # - build-job:
+            # requires:
+            # - install-job
+            # - test-job:
+            # requires:
+            # - install-job
+            # - lint-job:
+            # requires:
+            # - install-job
+            # - coverage-job:
+            # requires:
+            # - install-job
             - integration-job:
                   requires:
                       - install-job
