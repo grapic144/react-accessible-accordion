@@ -270,8 +270,16 @@ describe('WAI ARIA Spec', () => {
             const headingHandles = await evaluateHeadings();
             expect(headingHandles.length).toEqual(3);
 
+            page.on('error', err => {
+                console.log('error happen at the page: ', err);
+            });
+
+            page.on('pageerror', pageerr => {
+                console.log('pageerror occurred: ', pageerr);
+            });
+
             const [firstHeadingHandle] = headingHandles;
-            // await firstHeadingHandle.click();
+            await firstHeadingHandle.click();
 
             // const headingAriaDisabled = await page.evaluate(
             //     heading => heading.getAttribute('aria-disabled'),
