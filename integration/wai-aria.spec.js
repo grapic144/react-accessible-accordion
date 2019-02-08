@@ -279,7 +279,7 @@ describe('WAI ARIA Spec', () => {
             });
 
             const [firstHeadingHandle] = headingHandles;
-            await firstHeadingHandle.click();
+            await firstHeadingHandle.click().catch(e => console.log(e));
 
             // const headingAriaDisabled = await page.evaluate(
             //     heading => heading.getAttribute('aria-disabled'),
