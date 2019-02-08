@@ -2,17 +2,15 @@ import path from 'path';
 import puppeteer from 'puppeteer';
 
 describe('WAI ARIA Spec', () => {
-    const launchPromise = puppeteer.launch({
-        headless: true,
-        args: [
-            '--no-sandbox',
-            '--disable-setuid-sandbox',
-            '--disable-dev-shm-usage',
-        ],
-    });
-
     async function setup() {
-        const browser = await launchPromise;
+        const browser = await puppeteer.launch({
+            headless: true,
+            args: [
+                '--no-sandbox',
+                '--disable-setuid-sandbox',
+                '--disable-dev-shm-usage',
+            ],
+        });
 
         const page = await browser.newPage();
 
