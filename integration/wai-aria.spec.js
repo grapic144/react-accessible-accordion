@@ -2,15 +2,17 @@ import path from 'path';
 import puppeteer from 'puppeteer';
 
 describe('WAI ARIA Spec', () => {
+    const launchPromise = puppeteer.launch({
+        headless: true,
+        args: [
+            '--no-sandbox',
+            '--disable-setuid-sandbox',
+            '--disable-dev-shm-usage',
+        ],
+    });
+
     async function setup() {
-        const browser = await puppeteer.launch({
-            headless: true,
-            args: [
-                '--no-sandbox',
-                '--disable-setuid-sandbox',
-                '--disable-dev-shm-usage',
-            ],
-        });
+        const browser = await launchPromise;
 
         const page = await browser.newPage();
 
@@ -63,12 +65,14 @@ describe('WAI ARIA Spec', () => {
 
     describe('Keyboard Interaction', () => {
         describe('Enter or Space', () => {
-            it('When focus is on the accordion header for a collapsed panel, expands the associated panel. If the implementation allows only one panel to be expanded, and if another panel is expanded, collapses that panel.', async () => {
+            it.only('When focus is on the accordion header for a collapsed panel, expands the associated panel. If the implementation allows only one panel to be expanded, and if another panel is expanded, collapses that panel.', async () => {
                 const { page, headingsHandles } = await setup();
                 expect(headingsHandles.length).toEqual(3);
 
                 const firstHeadingHandle = headingsHandles[0];
                 const secondHeadingHandle = headingsHandles[1];
+
+                console.log(await headingsHandles[0].getProperties());
 
                 function evaluateIsExpanded(headingHandle) {
                     return page
