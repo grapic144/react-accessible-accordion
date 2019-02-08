@@ -13,7 +13,7 @@ describe('WAI ARIA Spec', () => {
 
         // Seems like the browser is a bit slower on CI, and we're trying to
         // select headings before they're registered in the 'store'.
-        await page.waitForSelector('.accordion__heading');
+        await page.waitFor(200);
     });
 
     describe('Canary tests', () => {
