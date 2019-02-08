@@ -242,7 +242,7 @@ describe('WAI ARIA Spec', () => {
             }
         });
 
-        it.only('The accordion header button element has aria-controls set to the ID of the element containing the accordion panel content.', async () => {
+        it('The accordion header button element has aria-controls set to the ID of the element containing the accordion panel content.', async () => {
             const itemHandles = await evaluateItems();
             expect(itemHandles.length).toEqual(3);
 
@@ -277,7 +277,7 @@ describe('WAI ARIA Spec', () => {
             expect(headingAriaDisabled).toEqual('true');
         });
 
-        it.only('Optionally, each element that serves as a container for panel content has role region and aria-labelledby with a value that refers to the button that controls display of the panel.', async () => {
+        it('Optionally, each element that serves as a container for panel content has role region and aria-labelledby with a value that refers to the button that controls display of the panel.', async () => {
             const itemHandles = await evaluateItems();
             expect(itemHandles.length).toEqual(3);
 
