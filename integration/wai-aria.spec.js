@@ -72,8 +72,6 @@ describe('WAI ARIA Spec', () => {
                 const firstHeadingHandle = headingsHandles[0];
                 const secondHeadingHandle = headingsHandles[1];
 
-                console.log(await headingsHandles[0].getProperties());
-
                 function evaluateIsExpanded(headingHandle) {
                     return page
                         .evaluate(
