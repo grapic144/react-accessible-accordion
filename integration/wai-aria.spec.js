@@ -242,7 +242,7 @@ describe('WAI ARIA Spec', () => {
             }
         });
 
-        it('The accordion header button element has aria-controls set to the ID of the element containing the accordion panel content.', async () => {
+        it.only('The accordion header button element has aria-controls set to the ID of the element containing the accordion panel content.', async () => {
             const itemHandles = await evaluateItems();
             expect(itemHandles.length).toEqual(3);
 
@@ -265,7 +265,7 @@ describe('WAI ARIA Spec', () => {
             }
         });
 
-        it('If the accordion panel associated with an accordion header is visible, and if the accordion does not permit the panel to be collapsed, the header button element has aria-disabled set to true.', async () => {
+        it.only('If the accordion panel associated with an accordion header is visible, and if the accordion does not permit the panel to be collapsed, the header button element has aria-disabled set to true.', async () => {
             const [firstHeadingHandle] = await evaluateHeadings();
             await firstHeadingHandle.click();
 
