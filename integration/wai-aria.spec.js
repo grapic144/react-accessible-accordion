@@ -13,7 +13,7 @@ describe('WAI ARIA Spec', () => {
 
         // Seems like the browser is a bit slower on CI, and we're trying to
         // select headings before they're registered in the 'store'.
-        await page.waitFor(200);
+        await page.waitFor(1000);
     });
 
     describe('Canary tests', () => {
@@ -242,7 +242,7 @@ describe('WAI ARIA Spec', () => {
             }
         });
 
-        it('The accordion header button element has aria-controls set to the ID of the element containing the accordion panel content.', async () => {
+        it.only('The accordion header button element has aria-controls set to the ID of the element containing the accordion panel content.', async () => {
             const itemHandles = await evaluateItems();
             expect(itemHandles.length).toEqual(3);
 
