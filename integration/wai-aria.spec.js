@@ -14,6 +14,7 @@ describe('WAI ARIA Spec', () => {
         // Seems like the browser is a bit slower on CI, and we're trying to
         // select headings before they're registered in the 'store'.
         await page.waitFor(1000);
+        await page.waitForSelector('.accordion__heading');
     });
 
     describe('Canary tests', () => {
@@ -266,7 +267,10 @@ describe('WAI ARIA Spec', () => {
         });
 
         it.only('If the accordion panel associated with an accordion header is visible, and if the accordion does not permit the panel to be collapsed, the header button element has aria-disabled set to true.', async () => {
-            const [firstHeadingHandle] = await evaluateHeadings();
+            const headingHandles = await evaluateHeadings();
+            expect(headingHandles.length).toEqual(3);
+
+            // const [firstHeadingHandle] = headingHandles;
             // await firstHeadingHandle.click();
 
             // const headingAriaDisabled = await page.evaluate(
