@@ -39,7 +39,7 @@ describe('WAI ARIA Spec', () => {
                 'React Accessible Accordion - Integration Test Sandbox',
             );
 
-            page.browser().close();
+            await page.browser().close();
         });
         it('has rendered the "classic accordion" example', async () => {
             const { page } = await setup();
@@ -48,7 +48,7 @@ describe('WAI ARIA Spec', () => {
             );
             expect(qtyClassicAccordion).toEqual(1);
 
-            page.browser().close();
+            await page.browser().close();
         });
     });
 
@@ -57,7 +57,7 @@ describe('WAI ARIA Spec', () => {
             const { page } = await setup();
             expect(await page.accessibility.snapshot()).toMatchSnapshot();
 
-            page.browser().close();
+            await page.browser().close();
         });
     });
 
@@ -99,7 +99,7 @@ describe('WAI ARIA Spec', () => {
                     true,
                 );
 
-                page.browser().close();
+                await page.browser().close();
             });
 
             xit('When focus is on the accordion header for an expanded panel, collapses the panel if the implementation supports collapsing. Some implementations require one panel to be expanded at all times and allow only one panel to be expanded; so, they do not support a collapse function.', () => {
@@ -123,7 +123,7 @@ describe('WAI ARIA Spec', () => {
                 );
                 expect(secondIsFocussed).toEqual(true);
 
-                page.browser().close();
+                await page.browser().close();
             });
         });
 
@@ -144,7 +144,7 @@ describe('WAI ARIA Spec', () => {
                 );
                 expect(firstIsFocussed).toEqual(true);
 
-                page.browser().close();
+                await page.browser().close();
             });
         });
 
@@ -163,7 +163,7 @@ describe('WAI ARIA Spec', () => {
                 );
                 expect(secondIsFocussed).toEqual(true);
 
-                page.browser().close();
+                await page.browser().close();
             });
 
             xit('If focus is on the last accordion header, either does nothing or moves focus to the first accordion header.', () => {
@@ -186,7 +186,7 @@ describe('WAI ARIA Spec', () => {
                 );
                 expect(firstIsFocussed).toEqual(true);
 
-                page.browser().close();
+                await page.browser().close();
             });
 
             xit('If focus is on the first accordion header, either does nothing or moves focus to the last accordion header.', () => {
@@ -210,7 +210,7 @@ describe('WAI ARIA Spec', () => {
                 );
                 expect(firstIsFocussed).toEqual(true);
 
-                page.browser().close();
+                await page.browser().close();
             });
         });
 
@@ -230,7 +230,7 @@ describe('WAI ARIA Spec', () => {
                 );
                 expect(thirdIsFocussed).toEqual(true);
 
-                page.browser().close();
+                await page.browser().close();
             });
         });
     });
@@ -248,7 +248,7 @@ describe('WAI ARIA Spec', () => {
                 ).toBe('button');
             }
 
-            page.browser().close();
+            await page.browser().close();
         });
 
         xit('Each accordion header button is wrapped in an element with role heading that has a value set for aria-level that is appropriate for the information architecture of the page.', () => {
@@ -288,7 +288,7 @@ describe('WAI ARIA Spec', () => {
                 ).toEqual('true');
             }
 
-            page.browser().close();
+            await page.browser().close();
         });
 
         it('The accordion header button element has aria-controls set to the ID of the element containing the accordion panel content.', async () => {
@@ -313,7 +313,7 @@ describe('WAI ARIA Spec', () => {
                 expect(headingAriaControls).toEqual(panelId);
             }
 
-            page.browser().close();
+            await page.browser().close();
         });
 
         it('If the accordion panel associated with an accordion header is visible, and if the accordion does not permit the panel to be collapsed, the header button element has aria-disabled set to true.', async () => {
@@ -338,7 +338,7 @@ describe('WAI ARIA Spec', () => {
 
             expect(headingAriaDisabled).toEqual('true');
 
-            page.browser().close();
+            await page.browser().close();
         });
 
         it('Optionally, each element that serves as a container for panel content has role region and aria-labelledby with a value that refers to the button that controls display of the panel.', async () => {
@@ -369,7 +369,7 @@ describe('WAI ARIA Spec', () => {
                 expect(panelRole).toEqual('region');
             }
 
-            page.browser().close();
+            await page.browser().close();
         });
     });
 });
