@@ -267,7 +267,7 @@ describe('WAI ARIA Spec', () => {
 
         it.only('If the accordion panel associated with an accordion header is visible, and if the accordion does not permit the panel to be collapsed, the header button element has aria-disabled set to true.', async () => {
             const [firstHeadingHandle] = await evaluateHeadings();
-            await firstHeadingHandle.click();
+            // await firstHeadingHandle.click();
 
             // const headingAriaDisabled = await page.evaluate(
             //     heading => heading.getAttribute('aria-disabled'),
