@@ -11,7 +11,6 @@ describe('WAI ARIA Spec', () => {
                 '--disable-dev-shm-usage',
                 '--disable-gpu',
             ],
-            dumpio: true,
         });
 
         const page = await browser.newPage();
