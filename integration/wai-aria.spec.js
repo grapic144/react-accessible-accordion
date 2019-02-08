@@ -270,15 +270,15 @@ describe('WAI ARIA Spec', () => {
             const headingHandles = await evaluateHeadings();
             expect(headingHandles.length).toEqual(3);
 
-            // const [firstHeadingHandle] = headingHandles;
-            // await firstHeadingHandle.click();
+            const [firstHeadingHandle] = headingHandles;
+            await firstHeadingHandle.click();
 
-            // const headingAriaDisabled = await page.evaluate(
-            //     heading => heading.getAttribute('aria-disabled'),
-            //     firstHeadingHandle,
-            // );
+            const headingAriaDisabled = await page.evaluate(
+                heading => heading.getAttribute('aria-disabled'),
+                firstHeadingHandle,
+            );
 
-            // expect(headingAriaDisabled).toEqual('true');
+            expect(headingAriaDisabled).toEqual('true');
         });
 
         it('Optionally, each element that serves as a container for panel content has role region and aria-labelledby with a value that refers to the button that controls display of the panel.', async () => {
