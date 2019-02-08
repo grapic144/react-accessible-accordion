@@ -65,7 +65,7 @@ describe('WAI ARIA Spec', () => {
 
     describe('Keyboard Interaction', () => {
         describe('Enter or Space', () => {
-            it.only('When focus is on the accordion header for a collapsed panel, expands the associated panel. If the implementation allows only one panel to be expanded, and if another panel is expanded, collapses that panel.', async () => {
+            it('When focus is on the accordion header for a collapsed panel, expands the associated panel. If the implementation allows only one panel to be expanded, and if another panel is expanded, collapses that panel.', async () => {
                 const { page, headingsHandles } = await setup();
                 expect(headingsHandles.length).toEqual(3);
 
