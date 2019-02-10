@@ -21,6 +21,7 @@ describe('WAI ARIA Spec', () => {
         // select headings before they're registered in the 'store'.
         await page.waitFor(1000);
         await page.waitForSelector('.accordion__heading');
+        console.log(await page.content());
 
         const headingsHandles = await page.$$(
             '#classic-accordion .accordion__heading',
@@ -276,6 +277,8 @@ describe('WAI ARIA Spec', () => {
                         handle,
                     ),
                 ).toEqual('false');
+
+                console.log(await page.content());
 
                 // Click to expand
                 await handle.click();
