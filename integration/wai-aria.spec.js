@@ -267,19 +267,19 @@ describe('WAI ARIA Spec', () => {
         });
 
         it.only('If the accordion panel associated with an accordion header is visible, the header button element has aria-expanded set to true. If the panel is not visible, aria-expanded is set to false.', async () => {
-            const { page, headingsHandles } = await setup();
-            expect(headingsHandles.length).toEqual(3);
+            const { page, itemsHandles } = await setup();
+            expect(itemsHandles.length).toEqual(3);
 
-            for (const handle of headingsHandles) {
+            for (const handle of itemsHandles) {
                 // Before expanding
-                expect(
-                    await page.evaluate(
-                        heading => heading.getAttribute('aria-expanded'),
-                        handle,
-                    ),
-                ).toEqual('false');
+                // expect(
+                //     await page.evaluate(
+                //         heading => heading.getAttribute('aria-expanded'),
+                //         handle,
+                //     ),
+                // ).toEqual('false');
 
-                console.log(await page.content());
+                // console.log(await page.content());
 
                 // Click to expand
                 await handle.click();
