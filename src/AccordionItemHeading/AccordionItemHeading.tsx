@@ -93,7 +93,7 @@ export default class AccordionItemHeading extends React.Component<
                 aria-controls={ariaControls}
                 className={headingClassName}
                 aria-disabled={disabled}
-                onClick={this.handleClick}
+                // onClick={this.handleClick}
                 role="button"
                 tabIndex={0}
                 data-accordion-component="AccordionItemHeading"
